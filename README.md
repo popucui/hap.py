@@ -335,9 +335,9 @@ docker pull pkrusche/hap.py
 ```
 If the current directory contains a clone of the hap.py repository, hap.py can be run in Docker as follows:
 ```bash
-sudo docker run -it -v `pwd`:/data pkrusche/hap.py /opt/hap.py/bin/hap.py /data/example/PG_performance.vcf.gz /data/example/performance.vcf.gz -o /data/test
+sudo docker run -it -v `pwd`:/data pkrusche/hap.py /opt/hap.py/bin/hap.py /data/example/PG_performance.vcf.gz /data/example/performance.vcf.gz -r /data/example/chr21.fa -o /data/test
 ```
-The `-v` argument mounts the current directory as `/data` in the Docker image. The output should also
+The `-v` argument mounts the current directory as `/data` in the Docker image. A reference file is required, you can set the environment variable `HGREF` or `HG19` or use the `-r` option directly. The output should also
 appear in the current directory.
 
 The default Docker image is based on Ubuntu. To use a Centos6 image as a base, use [Dockerfile.centos6](Dockerfile.centos6).
